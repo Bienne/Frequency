@@ -1,4 +1,5 @@
-﻿# -*- coding: utf-8 -*- 
+﻿#!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
 
 
 from WordNet.BaseWordNetItem import BaseWordNetItem

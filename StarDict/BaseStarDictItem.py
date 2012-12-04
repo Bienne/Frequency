@@ -1,11 +1,12 @@
-﻿# -*- coding: utf-8 -*- 
+﻿#!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
 
 
 import os
 
 class BaseStarDictItem:
 	def __init__(self, pathToDict, exp):
-	
+		
 		# Определяем переменную с кодировкой
 		self.encoding = "utf-8"
 		

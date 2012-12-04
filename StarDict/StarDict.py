@@ -1,4 +1,5 @@
-﻿# -*- coding: utf-8 -*- 
+﻿#!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
 
 
 from StarDict.Ifo import Ifo
@@ -11,10 +12,10 @@ class StarDict:
 		try:
 			# Формат словаря DICT предусматривает 3 обязательных файла (.ifo, .idx, .dict) и 1 необязательный (.syn)
 			# Если хотя бы один из обязательных словарей отсутствует, вызовется исключение и словарь не будет загружен
-			
+
 			# Создаем объект Ifo (он содержит настройки и мета-информацию о словаре) [Обязательный файл]
 			self.Ifo = Ifo(pathToDict)
-
+			
 			# Создаем объект Idx (он содержит отсортированный список всех слов и оффсеты для каждого слова в файле .dict) [Обязательный файл]
 			self.Idx = Idx(pathToDict, self.Ifo.wordCount, self.Ifo.idxFileSize, self.Ifo.idxOffsetBits)
 	

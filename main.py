@@ -1,7 +1,7 @@
-﻿# -*- coding: utf-8 -*- 
+﻿#!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
 
 import os
-import xlwt3 as xlwt
 
 from Frequency.IniParser import IniParser
 from Frequency.FrequencyDict import FrequencyDict
@@ -32,7 +32,7 @@ class Main:
 			for path in listPathToStarDict:
 				languageDict = StarDict(path)
 				self.listLanguageDict.append(languageDict) 
-			
+
 			# Получаем список книг, из которых будем получать слова
 			self.listBooks = self.__GetAllFiles(self.pathToBooks)
 
@@ -65,29 +65,6 @@ class Main:
 		
 		
 		
-	# Метод сохраняет результат(само слово, частота, его перевод) по первым countWord словам в файл формата Excel  	
-	def __SaveResultToExcel(self):	
-		try:
-			if not os.path.exists(self.pathResult):
-				raise Exception('No such directory: "%s"' %self.pathResult)	
-			
-			if self.result:	
-				description = 'Frequency Dictionary'
-				style = xlwt.easyxf('font: name Times New Roman')			
-				wb = xlwt.Workbook()
-				ws = wb.add_sheet(description + ' ' + self.countWord)	
-				nRow = 0
-				for item in self.result:
-					ws.write(nRow, 0, item[0], style)
-					ws.write(nRow, 1, item[1], style)
-					ws.write(nRow, 2, item[2], style)
-					nRow +=1			
-				wb.save(os.path.join(self.pathResult, description +'.xls'))
-		except Exception as e:
-			print(e)			
-	
-	
-	
 	# Метод запускает задачу на выполнение
 	def __Run(self):					
 		# Отдаем частотному словарю по одной книге	
@@ -104,8 +81,8 @@ class Main:
 			valueWord = self.__GetTranslate(word)
 			self.result.append([counterWord, word, valueWord])	
 
-		# Запишем результат в файл формата Excel 
-		self.__SaveResultToExcel()		
+		# Выведем результат 
+		print(self.result)
 
 		
 		

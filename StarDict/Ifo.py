@@ -1,10 +1,11 @@
-﻿# -*- coding: utf-8 -*- 
-
+﻿#!/usr/local/bin/python3
+# -*- coding: utf-8 -*- 
 
 from StarDict.BaseStarDictItem import BaseStarDictItem
 from Frequency.IniParser import IniParser
 
 class Ifo(BaseStarDictItem):
+
 	def __init__(self, pathToDict):
 		
 		# Конструктор родителя (BaseStarDictItem)
@@ -12,7 +13,7 @@ class Ifo(BaseStarDictItem):
 
 		# Создаем и инициализируем парсер
 		self.iniParser = IniParser(self.dictionaryFile)
-		
+
 		# Считаем из ifo файла параметры
 		# Если хотя бы одно из обязательных полей отсутствует, вызовется исключение и словарь не будет загружен
 		self.bookName = self.__getParameterValue("bookname", None) 					# Название словаря [Обязательное поле]
